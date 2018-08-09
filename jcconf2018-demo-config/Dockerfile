@@ -1,7 +1,7 @@
 FROM maven:3-jdk-8-alpine As build-env
 WORKDIR /app
 ADD . /app
-RUN mvn clean package -X
+RUN mvn clean package
 
 FROM openjdk:8-jre-alpine
 RUN apk update \
