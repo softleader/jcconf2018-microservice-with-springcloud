@@ -4,12 +4,12 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>tw.com.softleader</groupId>
-	<artifactId>jcconf2018-demo-erueka</artifactId>
+	<artifactId>jcconf2018-demo-eureka</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>jcconf2018-demo-erueka</name>
-	<description>Demo project for Spring Boot</description>
+	<name>jcconf2018-demo-eureka</name>
+	<description>Demo micorservice for jcconf 2018</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>

@@ -1,4 +1,4 @@
-package tw.com.softleader.jcconfdemo.erueka;
+package tw.com.softleader.jcconfdemo.eureka;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
