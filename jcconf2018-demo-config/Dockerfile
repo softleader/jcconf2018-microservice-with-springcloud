@@ -1,10 +1,7 @@
-FROM openjdk:8-alpine As build-env
-RUN apk update \
- && apk --no-cache add maven \
- && rm -rf /var/cache/apk/*
+FROM maven:3-jdk-8-alpine As build-env
 WORKDIR /app
 ADD . /app
-RUN mvn clean package -e
+RUN mvn clean package -X
 
 FROM openjdk:8-jre-alpine
 RUN apk update \
