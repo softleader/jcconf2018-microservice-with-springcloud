@@ -11,7 +11,7 @@ RUN apk update \
 VOLUME /tmp
 
 COPY config /config
-COPY entrypoint.sh /usr/local/bin/entrypoint.sh
+COPY entrypoint.sh /entrypoint.sh
 COPY --from=build-env /app/target/app.jar /app.jar
 
-ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
+ENTRYPOINT ["/bin/sh", "/entrypoint.sh"]
