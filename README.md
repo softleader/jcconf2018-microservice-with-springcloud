@@ -17,10 +17,9 @@
 - Docker Compose - 如果你是安裝 Docker for Windows 或是 Docker for Mac 則已經內涵 Compose, 如果是 Linux 請參考 [
 Install Compose on Linux systems](https://docs.docker.com/compose/install/#install-compose)
 
-	
 ### Build
 
-將此 repository clone 到本機後, 在 repository 的根目錄執行:
+將此 repository clone 到本機後, 本篇的所有指令都是在 repository 的根目錄執行:
 
 ```sh
 . <在這執行>
@@ -34,3 +33,12 @@ Install Compose on Linux systems](https://docs.docker.com/compose/install/#insta
 # 打包 source 成 docker image
 $ docker-compose build
 ```
+
+### Starting the application
+
+```
+$ docker-compose up
+```
+
+TBD..
+
