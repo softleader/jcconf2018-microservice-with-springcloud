@@ -1,4 +1,4 @@
-FROM maven:3-jdk-8-alpine As build-env
+FROM softleader/build-env:jcconf2018 As build-env
 WORKDIR /app
 ADD . /app
 RUN mvn clean package
@@ -11,15 +11,7 @@ RUN apk update \
 VOLUME /tmp
 
 COPY config /config
+COPY entrypoint.sh /usr/local/bin/entrypoint.sh
 COPY --from=build-env /app/target/app.jar /app.jar
 
-ENV JAVA_OPTS="-Xmx128m -Xms128m"
-
-ENTRYPOINT  if [ ! -e /config/.git ]; \
-            then \
-                cd /config && \
-                git init && \
-                git add . && \
-                git -c user.name='SoftLeader' -c user.email='rd@softleader.com.tw' commit -m "initial"; \
-            fi && \
-            java $JAVA_OPTS -Djava.security.egd=file:/dev/./urandom -jar /app.jar
+ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
