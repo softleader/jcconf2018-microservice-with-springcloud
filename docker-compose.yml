@@ -2,5 +2,3 @@ version: '3'
 services:
   config:
     build: ./jcconf2018-demo-config
-#    volumes:
-#      - //c/Users/Default User.LAPTOP-7KAG5S53/.m2:/root/.m2

@@ -1,4 +1,4 @@
-package tw.com.softleader.jcconf2018buildenv;
+package tw.com.softleader.jcconfdemo.buildenv;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
