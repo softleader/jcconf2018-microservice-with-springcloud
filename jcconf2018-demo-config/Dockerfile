@@ -15,3 +15,4 @@ COPY entrypoint.sh /entrypoint.sh
 COPY --from=build-env /app/target/app.jar /app.jar
 
 ENTRYPOINT ["/bin/sh", "/entrypoint.sh"]
+EXPOSE 8888
