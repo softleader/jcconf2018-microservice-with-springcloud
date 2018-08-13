@@ -2,3 +2,5 @@ version: '3'
 services:
   config:
     build: ./jcconf2018-demo-config
+    ports:
+      - 8888:8888
