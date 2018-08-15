@@ -1,6 +1,6 @@
 # Jcconf2018-SpringCloud-Demo
 
-![](./qr-code.svg)
+<img src="./qr-code.svg" height="500">
 
 > http://bit.ly/jcconf2018-springcloud
 
