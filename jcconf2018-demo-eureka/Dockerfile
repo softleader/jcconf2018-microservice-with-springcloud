@@ -10,8 +10,6 @@ RUN apk update \
 
 VOLUME /tmp
 
-COPY config /config
-COPY entrypoint.sh /entrypoint.sh
 COPY --from=build-env /app/target/app.jar /app.jar
 
-ENTRYPOINT ["/bin/sh", "/entrypoint.sh"]
+ENTRYPOINT ["/bin/sh", "-c", "java -Xmx128m -Xms128m -Djava.security.egd=file:/dev/./urandom -jar /app.jar"]

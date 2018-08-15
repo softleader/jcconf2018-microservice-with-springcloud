@@ -1,0 +1,14 @@
+---
+spring:
+  cloud:
+    config:
+      uri: http://config:8888
+      retry:
+        maxAttempts: 1
+      failFast: true
+      label: master
+  application:
+    name: eureka
+eureka:
+  client:
+    register-with-eureka: false
