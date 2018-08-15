@@ -1,7 +1,8 @@
 # Jcconf2018-SpringCloud-Demo
 
 > a brief title here..
-> shortcut of this page: `http://bit.ly/jcconf2018-springcloud`
+
+- shortcut of this page: `http://bit.ly/jcconf2018-springcloud`
 ![](./qr-code.svg | width=300)
 
 ## Getting Started
