@@ -1,9 +1,8 @@
 # Jcconf2018-SpringCloud-Demo
 
-> a brief title here..
+[](./qr-code.svg)
 
-- shortcut of this page: http://bit.ly/jcconf2018-springcloud
-<img src="./qr-code.svg" height="500">
+> http://bit.ly/jcconf2018-springcloud
 
 ## Getting Started
 
