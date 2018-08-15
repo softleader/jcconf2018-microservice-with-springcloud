@@ -2,7 +2,7 @@
 
 > a brief title here..
 
-- shortcut of this page: [http://bit.ly/jcconf2018-springcloud]
+- shortcut of this page: http://bit.ly/jcconf2018-springcloud
 <img src="./qr-code.svg" height="500">
 
 ## Getting Started
