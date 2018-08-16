@@ -1,8 +1,18 @@
-# 從 Spring Cloud 開始的 Microservice
+## 從 Spring Cloud 開始的 Microservice
+
+> 帶領大家了解 Spring Cloud 是如何把每一個 Spring Boot App 透過 Feign、Eureka 串聯起來
+
+[http://bit.ly/jcconf2018-springcloud](http://bit.ly/jcconf2018-springcloud)
 
 <img src="./qr-code.svg" height="500">
 
-> http://bit.ly/jcconf2018-springcloud
+### Requirements
+
+- Some knowledge of Spring Framework (preferably Sprign Boot)
+
+### What Will I Learn?
+
+- 在 45 分鐘內了解如何專透過 spring cloud 寫出 microservice 架構的服務
 
 ## Getting Started
 
