@@ -13,7 +13,7 @@
 
 ### What Will I Learn?
 
-- 在 45 分鐘內了解如何專透過 spring cloud 寫出 microservice 架構的服務
+- 在 45 分鐘內了解如何使用 Spring Cloud 實作為服務
 
 ## Getting Started
 
