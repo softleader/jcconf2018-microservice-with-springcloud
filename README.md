@@ -2,7 +2,7 @@
 
 > 帶領大家了解 Spring Cloud 是如何把每一個 Spring Boot App 透過 Feign、Eureka 串聯起來
 
-[http://bit.ly/jcconf2018-springcloud](http://bit.ly/jcconf2018-springcloud)
+[http://bit.ly/jcconf2018-spring-cloud](http://bit.ly/jcconf2018-spring-cloud)
 
 <img src="./docs/qr-code.svg" height="500">
 
