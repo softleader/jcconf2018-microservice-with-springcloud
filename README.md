@@ -4,7 +4,7 @@
 
 [http://bit.ly/jcconf2018-springcloud](http://bit.ly/jcconf2018-springcloud)
 
-<img src="./qr-code.svg" height="500">
+<img src="./docs/qr-code.svg" height="500">
 
 ### Requirements
 
@@ -37,10 +37,10 @@ Install Compose on Linux systems](https://docs.docker.com/compose/install/#insta
 . <在這執行>
 ├── README.md
 ├── docker-compose.yml
-├── jcconf2018-demo-config
-├── jcconf2018-demo-eureka
-├── jcconf2018-demo-gateway
-└── jcconf2018-demo-service
+├── config
+├── eureka
+├── gateway
+└── service
 
 # 打包 source 成 docker image
 $ docker-compose build

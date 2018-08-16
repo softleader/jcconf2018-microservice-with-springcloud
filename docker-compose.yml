@@ -1,12 +1,12 @@
 version: '3'
 services:
   config:
-    build: ./jcconf2018-demo-config
+    build: ./jcconf2018-config
   eureka:
-    build: ./jcconf2018-demo-eureka
+    build: ./jcconf2018-eureka
     restart: on-failure
     ports:
       - 8000:8000
   service:
-    build: ./jcconf2018-demo-service
+    build: ./jcconf2018-service
     restart: on-failure
