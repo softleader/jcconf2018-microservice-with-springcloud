@@ -38,10 +38,11 @@ Install Compose on Linux systems](https://docs.docker.com/compose/install/#insta
 . <在這執行>
 ├── README.md
 ├── docker-compose.yml
-├── config
-├── eureka
-├── gateway
-└── service
+├── jcconf2018-config/
+├── jcconf2018-eureka/
+├── ...
+└── ...
+
 
 # 打包 source 成 docker image
 $ docker-compose build
