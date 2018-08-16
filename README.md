@@ -13,7 +13,7 @@
 
 ### What Will I Learn?
 
-- 在 45 分鐘內了解如何使用 Spring Cloud 實作為服務
+- 在 45 分鐘內了解如何使用 Spring Cloud 實作微服務
 
 ## Getting Started
 
