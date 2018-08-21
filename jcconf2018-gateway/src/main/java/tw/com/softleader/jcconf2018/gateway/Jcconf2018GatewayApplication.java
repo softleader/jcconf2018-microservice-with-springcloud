@@ -1,6 +1,5 @@
 package tw.com.softleader.jcconf2018.gateway;
 
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.gateway.route.RouteLocator;
@@ -16,10 +15,11 @@ public class Jcconf2018GatewayApplication {
 
 	@Bean
 	public RouteLocator customRouteLocator(RouteLocatorBuilder builder) {
+		// TODO 這邊的寫法沒辦法和 https://www.youtube.com/watch?v=TwVtlNX-2Hs 一樣
 		return builder.routes()
 				.route(r -> r
-						.path("/service/sample/echoip")
-						.uri("lb://service/sample/echoip")
+						.path("/**") // FIXME
+						.uri("lb://service") // FIXME
 				)
 				.build();
 	}
