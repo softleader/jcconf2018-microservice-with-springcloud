@@ -10,3 +10,6 @@ services:
   service:
     build: ./jcconf2018-service
     restart: on-failure
+  gateway:
+    build: ./jcconf2018-gateway
+    restart: on-failure
