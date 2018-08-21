@@ -5,7 +5,9 @@ RUN mvn clean package
 
 FROM openjdk:8-jre-alpine
 RUN apk update \
- && apk --no-cache add git \
+ && apk --no-cache add git tzdata \
+ && ls /usr/share/zoneinfo \
+ && cp /usr/share/zoneinfo/Asia/Taipei /etc/localtime  \
  && rm -rf /var/cache/apk/*
 
 VOLUME /tmp

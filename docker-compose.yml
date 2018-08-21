@@ -13,3 +13,5 @@ services:
   gateway:
     build: ./jcconf2018-gateway
     restart: on-failure
+    ports:
+      - 80:80
