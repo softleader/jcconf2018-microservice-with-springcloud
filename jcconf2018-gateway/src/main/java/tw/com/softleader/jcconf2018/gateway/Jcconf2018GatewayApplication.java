@@ -15,11 +15,10 @@ public class Jcconf2018GatewayApplication {
 
 	@Bean
 	public RouteLocator customRouteLocator(RouteLocatorBuilder builder) {
-		// TODO 這邊的寫法沒辦法和 https://www.youtube.com/watch?v=TwVtlNX-2Hs 一樣
 		return builder.routes()
 				.route(r -> r
-						.path("/**") // FIXME
-						.uri("lb://service") // FIXME
+						.path("/sample/echoip")
+						.uri("lb://service")
 				)
 				.build();
 	}
