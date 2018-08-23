@@ -2,3 +2,9 @@ spring:
   cloud:
     config:
       uri: http://localhost:8888
+server:
+  port: 8080
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8000/eureka/

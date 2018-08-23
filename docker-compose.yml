@@ -12,6 +12,10 @@ services:
   service:
     build: ./jcconf2018-service
     restart: on-failure
+#    environment:
+#      - APP_OPTS=-Deureka.instance.hostname=localhost -Deureka.instance.non-secure-port=8081
+#    ports:
+#      - 8081:80
   gateway:
     build: ./jcconf2018-gateway
     restart: on-failure

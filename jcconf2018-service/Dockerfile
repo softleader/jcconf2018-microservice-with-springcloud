@@ -14,4 +14,7 @@ VOLUME /tmp
 
 COPY --from=build-env /app/target/app.jar /app.jar
 
-ENTRYPOINT ["/bin/sh", "-c", "java -Xmx128m -Xms128m -Djava.security.egd=file:/dev/./urandom -jar /app.jar"]
+# 預留一個變數讓 docker 啟動時可以傳入更多的參數
+ENV APP_OPTS=""
+
+ENTRYPOINT ["/bin/sh", "-c", "java $APP_OPTS -Xmx128m -Xms128m -Djava.security.egd=file:/dev/./urandom -jar /app.jar"]
