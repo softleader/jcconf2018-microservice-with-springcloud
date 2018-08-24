@@ -17,7 +17,8 @@ public class Jcconf2018GatewayApplication {
 	public RouteLocator customRouteLocator(RouteLocatorBuilder builder) {
 		return builder.routes()
 				.route(r -> r
-						.path("/sample/echoip")
+						.path("/service/sample/echoip")
+						.filters(gatewayFilterSpec -> gatewayFilterSpec.rewritePath("/service/(?<segment>.*)", "/${segment}"))
 						.uri("lb://service")
 				)
 				.build();
