@@ -21,6 +21,11 @@ public class Jcconf2018GatewayApplication {
 						.filters(gatewayFilterSpec -> gatewayFilterSpec.rewritePath("/service/(?<segment>.*)", "/${segment}"))
 						.uri("lb://service")
 				)
+				.route(r -> r
+						.path("/feign/other/echoip/*")
+						.filters(gatewayFilterSpec -> gatewayFilterSpec.rewritePath("/feign/(?<segment>.*)", "/${segment}"))
+						.uri("lb://feign")
+				)
 				.build();
 	}
 
