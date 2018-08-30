@@ -8,3 +8,7 @@ build:
 .PHONY: push
 push:
 	docker push softleader/build-env:jcconf2018
+
+.PHONY: pull
+pull:
+	docker pull softleader/build-env:jcconf2018
