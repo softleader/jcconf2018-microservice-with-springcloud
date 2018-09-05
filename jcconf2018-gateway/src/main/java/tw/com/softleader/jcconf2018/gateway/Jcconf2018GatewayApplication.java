@@ -17,14 +17,18 @@ public class Jcconf2018GatewayApplication {
 	public RouteLocator customRouteLocator(RouteLocatorBuilder builder) {
 		return builder.routes()
 				.route(r -> r
-						.path("/service/sample/echoip")
-						.filters(gatewayFilterSpec -> gatewayFilterSpec.rewritePath("/service/(?<segment>.*)", "/${segment}"))
-						.uri("http://service")
-				)
-				.route(r -> r
-						.path("/feign/other/echoip/*")
+						.path("/feign/**")
 						.filters(gatewayFilterSpec -> gatewayFilterSpec.rewritePath("/feign/(?<segment>.*)", "/${segment}"))
 						.uri("http://feign")
+				)
+				.route(r -> r
+						.path("/lb/feign/**")
+						.filters(gatewayFilterSpec -> gatewayFilterSpec.rewritePath("/lb/feign/(?<segment>.*)", "/${segment}"))
+						.uri("lb://feign")
+				)
+				.route(r -> r
+						.path("/service/echoip")
+						.uri("http://service/sample/echoip")
 				)
 				.build();
 	}

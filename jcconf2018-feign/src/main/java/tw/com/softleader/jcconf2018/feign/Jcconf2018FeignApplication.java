@@ -11,4 +11,5 @@ public class Jcconf2018FeignApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(Jcconf2018FeignApplication.class, args);
 	}
+
 }
