@@ -61,6 +61,7 @@ $ docker-compose up -d --scale service=2
 ## Overview
 ### Modules
 <img src="./docs/diagram.svg" width="800">
+
 > 本次介紹僅針對藍色的部分
 - jcconf2018-config
     - Features: Config Server
@@ -95,6 +96,7 @@ $ docker-compose up -d --scale service=2
 
 ### First Response
 <img src="./docs/eureka_flow.svg" width="800">
+
 1. 啟動
     1. `ConfigServer` 啟動
         > 由於有設定 `spring.cloud.config.failFast=true` 的緣故，其餘服務在 Config Server 可以開始提供服務前，會啟動失敗，並嘗試重啟到獲得 Config 為止
