@@ -5,7 +5,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-@FeignClient(value = "service")
+@FeignClient("service")
 public interface SampleStub {
 
 	@RequestMapping(value = "/sample/echoip", method = RequestMethod.GET)

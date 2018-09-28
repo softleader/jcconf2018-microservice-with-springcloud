@@ -30,6 +30,11 @@ public class Jcconf2018GatewayApplication {
 						.path("/service/echoip")
 						.uri("http://service/sample/echoip")
 				)
+				.route(r -> r
+						.path("/service/**")
+						.filters(gatewayFilterSpec -> gatewayFilterSpec.rewritePath("/service/(?<segment>.*)", "/${segment}"))
+						.uri("http://service")
+				)
 				.build();
 	}
 

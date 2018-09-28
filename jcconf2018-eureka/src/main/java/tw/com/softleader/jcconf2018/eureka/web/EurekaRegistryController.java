@@ -12,7 +12,7 @@ import com.netflix.eureka.registry.InstanceRegistry;
 
 /** @author Matt S.Y Ho */
 @RestController
-@RequestMapping(value = "/registry", produces = MediaType.APPLICATION_JSON_VALUE)
+@RequestMapping(value = "/registry", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 public class EurekaRegistryController {
 
 	@Autowired private InstanceRegistry registry;

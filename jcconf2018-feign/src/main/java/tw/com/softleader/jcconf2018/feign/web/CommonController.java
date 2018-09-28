@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import tw.com.softleader.jcconf2018.feign.stub.SampleStub;
 
 @RestController
-@RequestMapping(value = "/common", produces = MediaType.APPLICATION_JSON_VALUE)
+@RequestMapping(value = "/common", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 public class CommonController {
 
 	public static final String SERVICE_NAME = "service";

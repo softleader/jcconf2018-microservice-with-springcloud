@@ -57,6 +57,21 @@ $ docker-compose up -d
 $ docker-compose up -d --scale service=2
 ```
 
+### Testing Api
+
+```sh
+# eureka console http://localhost:8000/
+
+# call
+$ curl http://localhost:8080/feign/common/echoip/service
+
+# call with loadbalance(ribbon)
+$ curl http://localhost:8080/lb/feign/common/echoip/service
+
+# direct call
+$ curl http://localhost:8080/service/echoip
+
+```
 
 ## Overview
 ### Modules
@@ -85,25 +100,50 @@ $ docker-compose up -d --scale service=2
     - `eureka-client`, `config-client`, `web`
 > 本次的服務皆啟在 docker 上，因此 Port 描述上，`:`左邊表公開Port、右邊為DockerNetwork Port
 
-### Configs
-- `bootstrap.yml`: 由於每個服務在啟動前就需要先知道`ConfigServer`的位置，這類設定應寫在此檔案
-    - `spring.application.name`: 定義服務名稱
-    - `spring.cloud.config.uri`: 定義`ConfigServer`位置
-    - `spring.cloud.config.failFast`: 若獲取`ConfigServer`失敗是否中斷App
-    - `spring.cloud.config.label`: 設定檔是git的結構，這邊是定義要從哪一個 git label 中取得 config
-    - `spring.cloud.config.retry.maxAttempts`: 與`ConfigServer`連線失敗時的重試次數，預設六次，由於可以由docker來進行自動重啟，因此這邊設定不使用重試機制
-- TBD...
+### Common Configs
+- Config Server 相關
+    - 啟動 App 後的第一個步驟是先到 Config Server 取得相對應的設定
+    - 除了 Config Server 外的服務都需要進行此設定
+    - 此類設定置於各 App 下的 `bootstrap.properties`
+    ```properties
+    # AppName 同時也用作於 Config Server 的 ConfigName
+    spring.application.name=service
 
-### First Response
+    # ConfigServer 連線, 與嘗試連線次數的相關設定
+    spring.cloud.config.uri=http://config:8888
+    spring.cloud.config.retry.maxAttempts=1    #嘗試與ConfigServer連線的次數
+    spring.cloud.config.failFast=true          #由於App的啟動管理已經交給docker, 這邊若嘗試失敗則直接停掉App即可
+    spring.cloud.config.label=master           #ConfigServer是以git的結構儲存config, 此處的label即為git label
+    ```
+- Eureka Client 相關
+    - 屬於會被其他功能呼叫的服務, 需要註冊到 Eureka 作為 Eureka Client 運行
+    - `service`, `feign` 需要進行此設定
+    - 根據是否是共通設定, 置於 Config Server 的 `application.properties` 或 `{AppName}.properties`
+    ```properties
+    # 啟動作為 Eureka Client 的功能
+    eureka.client.enable=true
+
+    # eureka 服務位置
+    eureka.client.serviceUrl.defaultZone=http://eureka:8000/eureka/
+
+    # eureka 相關更新頻率設定
+    # 為了 demo 能快速反應, 此處縮短了註冊, 更新, 過期的時間
+    eureka.client.instance-info-replication-interval-seconds=10
+    eureka.client.registry-fetch-interval-seconds=10
+    eureka.instance.lease-renewal-interval-in-seconds=10
+    eureka.instance.lease-expiration-duration-in-seconds=30
+    ```
+
+### Flow
 <img src="./docs/eureka_flow.svg" width="800">
 
 1. 啟動
     1. `ConfigServer` 啟動
-        > 由於有設定 `spring.cloud.config.failFast=true` 的緣故，其餘服務在 Config Server 可以開始提供服務前，會啟動失敗，並嘗試重啟到獲得 Config 為止
+        > 由於有設定 `spring.cloud.config.failFast=true` 的緣故, 其餘服務在 Config Server 可以開始提供服務前, 會啟動失敗, 並嘗試重啟到獲得 Config 為止
     2. `Eureka` 啟動
-    3. `CompositeService`, `BaseService` 啟動，並嘗試向 `Eureka` 註冊 ServiceName
+    3. `CompositeService`, `BaseService` 啟動, 並嘗試向 `Eureka` 註冊 ServiceName
 2. 回應請求
-    1. 由 `Gateway` 接收所有的 request ，並根據 router 規則轉導到相對應的服務上
-    2. 若轉到對向為內部服務，則 `Eureka` 會根據呼叫的 ServiceName 提供服務的 IP
+    1. 由 `Gateway` 接收所有的 request, 並根據 router 規則轉導到相對應的服務上
+    2. 若轉到對向為內部服務, 則 `Eureka` 會根據呼叫的 ServiceName 提供服務的 IP
     3. `Gateway` 獲取 IP 後呼叫服務
 
