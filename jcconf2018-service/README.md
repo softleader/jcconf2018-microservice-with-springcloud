@@ -31,4 +31,4 @@ eureka.client.enable=true
     - 實際上 Actuator 已經有一些預設實作 diskSpace, refreshScope, discoveryComposite..等
     - 必須所有 `HealthIndicator` 為UP才會算是有效的服務
 
-[back](../README.md#Detail)
+[back](../README.md#detail)

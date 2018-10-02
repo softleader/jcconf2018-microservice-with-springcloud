@@ -44,4 +44,4 @@
 3. 呼叫 `FeignClient` 時, 就會透過 load balance 機制呼叫 service 的其中一台 server 獲取回應
     - 預設情況下的 load balacne 是同一個 service 下的 server 輪流呼叫
 
-[back](../README.md#Detail)
+[back](../README.md#detail)
