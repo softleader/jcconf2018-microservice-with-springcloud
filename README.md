@@ -100,6 +100,19 @@ $ curl http://localhost:8080/service/echoip
     - `eureka-client`, `config-client`, `web`
 > 本次的服務皆啟在 docker 上，因此 Port 描述上，`:`左邊表公開Port、右邊為DockerNetwork Port
 
+### Flow
+<img src="./docs/eureka_flow.svg" width="800">
+
+1. 啟動
+    1. `ConfigServer` 啟動
+        > 由於有設定 `spring.cloud.config.failFast=true` 的緣故, 其餘服務在 Config Server 可以開始提供服務前, 會啟動失敗, 並嘗試重啟到獲得 Config 為止
+    2. `Eureka` 啟動
+    3. `CompositeService`, `BaseService` 啟動, 並嘗試向 `Eureka` 註冊 ServiceName
+2. 回應請求
+    1. 由 `Gateway` 接收所有的 request, 並根據 router 規則轉導到相對應的服務上
+    2. 若轉到對向為內部服務, 則 `Eureka` 會根據呼叫的 ServiceName 提供服務的 IP
+    3. `Gateway` 獲取 IP 後呼叫服務
+
 ### Common Configs
 - Config Server 相關
     - 啟動 App 後的第一個步驟是先到 Config Server 取得相對應的設定
@@ -132,18 +145,14 @@ $ curl http://localhost:8080/service/echoip
     eureka.client.registry-fetch-interval-seconds=10
     eureka.instance.lease-renewal-interval-in-seconds=10
     eureka.instance.lease-expiration-duration-in-seconds=30
+
+    # 當 ribbon 指向的 service 其中一個 server 失去連線時, 以其他 server 進行重試
+    spring.cloud.loadbalancer.retry.enabled=true
     ```
 
-### Flow
-<img src="./docs/eureka_flow.svg" width="800">
-
-1. 啟動
-    1. `ConfigServer` 啟動
-        > 由於有設定 `spring.cloud.config.failFast=true` 的緣故, 其餘服務在 Config Server 可以開始提供服務前, 會啟動失敗, 並嘗試重啟到獲得 Config 為止
-    2. `Eureka` 啟動
-    3. `CompositeService`, `BaseService` 啟動, 並嘗試向 `Eureka` 註冊 ServiceName
-2. 回應請求
-    1. 由 `Gateway` 接收所有的 request, 並根據 router 規則轉導到相對應的服務上
-    2. 若轉到對向為內部服務, 則 `Eureka` 會根據呼叫的 ServiceName 提供服務的 IP
-    3. `Gateway` 獲取 IP 後呼叫服務
-
+## Detail
+- Service layer: [Service](./jcconf2018-service/README.md)
+- Composit layer: [Feign](./jcconf2018-feign/README.md)
+- Config server: [Config](./jcconf2018-config/README.md)
+- Service discovery: [Eureka](./jcconf2018-eureka/README.md)
+- Gateway layer: [Gateway](./jcconf2018-gateway/README.md)

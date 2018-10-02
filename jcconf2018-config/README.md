@@ -1,4 +1,5 @@
-# Jcconf2018 Demo Config
+# Config Server
+- 能將 Config 集中管理
 
 - `./config/`
     - spring config server 預設是利用 git 管理 config
