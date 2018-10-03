@@ -8,7 +8,7 @@
 
 ### Requirements
 
-- Some knowledge of Spring Framework (preferably Sprign Boot)
+- Some knowledge of Spring Framework (preferably Spring Boot)
 - Some basic knowledge of docker (run, trace logs of container, etc..)
 
 ### What Will I Learn?
