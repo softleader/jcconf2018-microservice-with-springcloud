@@ -139,7 +139,7 @@ $ curl http://localhost:8080/service/echoip
     # eureka 服務位置
     eureka.client.serviceUrl.defaultZone=http://eureka:8000/eureka/
 
-    # eureka 相關更新頻率設定
+    # eureka 相關更新週期設定
     # 為了 demo 能快速反應, 此處縮短了註冊, 更新, 過期的時間
     eureka.client.instance-info-replication-interval-seconds=10
     eureka.client.registry-fetch-interval-seconds=10
@@ -151,8 +151,8 @@ $ curl http://localhost:8080/service/echoip
     ```
 
 ## Detail
-- Service layer: [Service](./jcconf2018-service/README.md)
-- Composit layer: [Feign](./jcconf2018-feign/README.md)
-- Config server: [Config](./jcconf2018-config/README.md)
-- Service discovery: [Eureka](./jcconf2018-eureka/README.md)
-- Gateway layer: [Gateway](./jcconf2018-gateway/README.md)
+1. Service layer: [Service](./jcconf2018-service/README.md)
+2. Composit layer: [Feign](./jcconf2018-feign/README.md)
+3. Config server: [Config](./jcconf2018-config/README.md)
+4. Service discovery: [Eureka](./jcconf2018-eureka/README.md)
+5. Gateway layer: [Gateway](./jcconf2018-gateway/README.md)

@@ -26,7 +26,7 @@ eureka.client.enable=true
 - 自動產生 SrpingBootApp 相關運行狀態的 API, 可以根據需求於設定檔開啟要開放的 API
 - Eureka 會透過呼叫 `{ip}:{port}/{servlet.path}/actuator/health` 取得 status 屬性, 來判斷服務是否可用
     - `http://localhost:8080/service/actuator/health`
-    - 根據 Eureka 與各 Client 的同步頻率設定而影響反應速度, 預設設定下約為30秒
+    - 根據 Eureka 與各 Client 的同步週期設定而影響反應速度, 預設設定下約為30秒
 - 客製化狀態需要實做 `HealthIndicator` 或繼承 `AbstractHealthIndicator`
     - 實際上 Actuator 已經有一些預設實作 diskSpace, refreshScope, discoveryComposite..等
     - 必須所有 `HealthIndicator` 為UP才會算是有效的服務

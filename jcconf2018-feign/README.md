@@ -37,7 +37,7 @@
 ## How it works
 <img src="../docs/feign_and_ribbon.svg" width="800">
 
-1. 作為一個 EurekaClient, 會以一定頻率與 EurekaServer 同步可呼叫的 Server 清單
+1. 作為一個 EurekaClient, 會以一定週期與 EurekaServer 同步可呼叫的 Server 清單
 2. Server 清單會由 `Ribbon` 這個 Dependency 控管
     - `Ribbon` 是一個 client-side load balancer, 預設情況下 `FeignClient` 會使用其來呼叫外部 API
     - 與 `Eureka` 一樣是屬於 Netflix 的一個專案

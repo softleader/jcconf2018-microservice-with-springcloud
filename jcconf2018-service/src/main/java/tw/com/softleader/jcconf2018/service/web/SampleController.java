@@ -6,6 +6,7 @@ import java.util.stream.Stream;
 
 import javax.validation.ValidationException;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.actuate.health.Status;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -35,6 +36,14 @@ public class SampleController {
 
 		EnvVeriable.INSTANT.setStatus(status);
 		return ResponseEntity.ok("success@" + InetAddress.getLocalHost());
+	}
+
+	@Value("${demo.var:default}")
+	private String demoVar;
+
+	@GetMapping("/demovar")
+	public ResponseEntity<String> getDemoVar() throws UnknownHostException {
+		return ResponseEntity.ok(demoVar);
 	}
 
 }
