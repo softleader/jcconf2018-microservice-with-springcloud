@@ -61,16 +61,16 @@ $ docker-compose up -d --scale service=2
 
 ```sh
 # eureka console http://localhost:8000/
+# admin  console http://localhost:30000/
 
 # call
-$ curl http://localhost:8080/feign/common/echoip/service
+$ curl http://localhost:8080/common/echoip/service
 
-# call with loadbalance(ribbon)
-$ curl http://localhost:8080/lb/feign/common/echoip/service
+# call direct(use docker network)
+$ curl http://localhost:8080/direct/common/echoip/service
 
-# direct call
-$ curl http://localhost:8080/service/echoip
-
+# call service direct(with out composite layer)
+$ curl http://localhost:8080/direct/service/echoip
 ```
 
 ## Overview
@@ -152,7 +152,7 @@ $ curl http://localhost:8080/service/echoip
 
 ## Detail
 1. Service layer: [Service](./jcconf2018-service/README.md)
-2. Composit layer: [Feign](./jcconf2018-feign/README.md)
+2. composite layer: [Feign](./jcconf2018-feign/README.md)
 3. Config server: [Config](./jcconf2018-config/README.md)
 4. Service discovery: [Eureka](./jcconf2018-eureka/README.md)
 5. Gateway layer: [Gateway](./jcconf2018-gateway/README.md)

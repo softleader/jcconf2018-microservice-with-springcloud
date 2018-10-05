@@ -8,8 +8,11 @@ import org.springframework.stereotype.Component;
 
 import tw.com.softleader.jcconf2018.service.common.EnvVeriable;
 
+/**
+ * server 狀態可以透過外部操作的 HealthIndicator
+ */
 @Component
-public class CustomHealthIndicator extends AbstractHealthIndicator {
+public class ControllableStatusHealthIndicator extends AbstractHealthIndicator {
 
 	@Override
 	protected void doHealthCheck(Health.Builder builder) throws Exception {

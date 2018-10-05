@@ -6,7 +6,6 @@ import java.util.stream.Stream;
 
 import javax.validation.ValidationException;
 
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.actuate.health.Status;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -21,12 +20,18 @@ import tw.com.softleader.jcconf2018.service.common.EnvVeriable;
 @RequestMapping(value = "/sample", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 public class SampleController {
 
+	/**
+	 * 回應當前 server host
+	 */
 	@GetMapping("/echoip")
 	public ResponseEntity<String> echoip() throws UnknownHostException {
 		final InetAddress localHost = InetAddress.getLocalHost();
 		return ResponseEntity.ok(localHost.toString());
 	}
 
+	/**
+	 * 變更 server 狀態
+	 */
 	@GetMapping("/chgsts/{statusTx}")
 	public ResponseEntity<String> down(@PathVariable String statusTx) throws UnknownHostException {
 		final Status status = Stream.of(Status.UP, Status.DOWN, Status.OUT_OF_SERVICE)
@@ -36,14 +41,6 @@ public class SampleController {
 
 		EnvVeriable.INSTANT.setStatus(status);
 		return ResponseEntity.ok("success@" + InetAddress.getLocalHost());
-	}
-
-	@Value("${demo.var:default}")
-	private String demoVar;
-
-	@GetMapping("/demovar")
-	public ResponseEntity<String> getDemoVar() throws UnknownHostException {
-		return ResponseEntity.ok(demoVar);
 	}
 
 }

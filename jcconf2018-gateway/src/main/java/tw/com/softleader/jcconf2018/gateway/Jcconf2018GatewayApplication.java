@@ -17,23 +17,27 @@ public class Jcconf2018GatewayApplication {
 	public RouteLocator customRouteLocator(RouteLocatorBuilder builder) {
 		return builder.routes()
 				.route(r -> r
-						.path("/feign/**")
-						.filters(gatewayFilterSpec -> gatewayFilterSpec.rewritePath("/feign/(?<segment>.*)", "/${segment}"))
-						.uri("http://feign")
+						.path("/service/**")
+						.filters(gatewayFilterSpec -> gatewayFilterSpec.rewritePath("/service/(?<segment>.*)", "/${segment}"))
+						.uri("lb://service")
 				)
 				.route(r -> r
-						.path("/lb/feign/**")
-						.filters(gatewayFilterSpec -> gatewayFilterSpec.rewritePath("/lb/feign/(?<segment>.*)", "/${segment}"))
+						.path("/common/**")
 						.uri("lb://feign")
 				)
 				.route(r -> r
-						.path("/service/echoip")
+						.path("/direct/service/echoip")
 						.uri("http://service/sample/echoip")
 				)
 				.route(r -> r
-						.path("/service/**")
-						.filters(gatewayFilterSpec -> gatewayFilterSpec.rewritePath("/service/(?<segment>.*)", "/${segment}"))
+						.path("/direct/service/**")
+						.filters(gatewayFilterSpec -> gatewayFilterSpec.rewritePath("/direct/service/(?<segment>.*)", "/${segment}"))
 						.uri("http://service")
+				)
+				.route(r -> r
+						.path("/direct/common/**")
+						.filters(gatewayFilterSpec -> gatewayFilterSpec.rewritePath("/direct/(?<segment>.*)", "/${segment}"))
+						.uri("http://feign")
 				)
 				.build();
 	}

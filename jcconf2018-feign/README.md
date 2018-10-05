@@ -1,5 +1,5 @@
 # Feign
-- 提供組合服務(Composit Service), 相較於基礎服務(Base Service)提供更完整的商業邏輯
+- 提供組合服務(Composite Service), 相較於基礎服務(Base Service)提供更完整的商業邏輯
 - 通常以串聯基礎服務來完成其功能, 串聯的方式透過 Feign 這一個 Dependency
 - 以 WebApp 的架構為主, 提供 Restful API
 
