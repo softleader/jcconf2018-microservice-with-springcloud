@@ -151,8 +151,8 @@ $ curl http://localhost:8080/direct/service/echoip
     ```
 
 ## Detail
-1. Service layer: [Service](./jcconf2018-service/README.md)
-2. composite layer: [Feign](./jcconf2018-feign/README.md)
-3. Config server: [Config](./jcconf2018-config/README.md)
-4. Service discovery: [Eureka](./jcconf2018-eureka/README.md)
-5. Gateway layer: [Gateway](./jcconf2018-gateway/README.md)
+1. Service layer: [Service](./jcconf2018-service/)
+2. composite layer: [Feign](./jcconf2018-feign/)
+3. Config server: [Config](./jcconf2018-config/)
+4. Service discovery: [Eureka](./jcconf2018-eureka/)
+5. Gateway layer: [Gateway](./jcconf2018-gateway/)
