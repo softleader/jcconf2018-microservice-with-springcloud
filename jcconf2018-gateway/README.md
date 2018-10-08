@@ -9,7 +9,7 @@
 - `spring-cloud-starter-netflix-eureka-client`: 註冊到 EurekaServer 並提供服務
 
 ### Routers
-```
+```java
 @Bean
 public RouteLocator customRouteLocator(RouteLocatorBuilder builder) {
     return builder.routes()
