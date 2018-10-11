@@ -101,7 +101,7 @@ $ curl http://localhost:8080/direct/service/echoip
 > 本次的服務皆啟在 docker 上，因此 Port 描述上，`:`左邊表公開Port、右邊為DockerNetwork Port
 
 ### Flow
-<img src="./docs/eureka_flow.svg" width="800">
+<img src="./docs/flow.svg" width="800">
 
 1. 啟動
     1. `ConfigServer` 啟動
@@ -152,7 +152,7 @@ $ curl http://localhost:8080/direct/service/echoip
 
 ## Detail
 1. Service layer: [Service](./jcconf2018-service/)
-2. composite layer: [Feign](./jcconf2018-feign/)
-3. Config server: [Config](./jcconf2018-config/)
-4. Service discovery: [Eureka](./jcconf2018-eureka/)
-5. Gateway layer: [Gateway](./jcconf2018-gateway/)
+2. Service discovery: [Eureka](./jcconf2018-eureka/)
+3. Composite layer: [Feign](./jcconf2018-feign/)
+4. Gateway layer: [Gateway](./jcconf2018-gateway/)
+5. Config server: [Config](./jcconf2018-config/)

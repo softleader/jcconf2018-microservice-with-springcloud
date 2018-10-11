@@ -1,4 +1,6 @@
 # Gateway
+<img src="../docs/gateway.svg" width="800">
+
 - 用於處理服務指向(Router)
 
 ## Setup

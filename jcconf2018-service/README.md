@@ -1,4 +1,6 @@
 # Service
+<img src="../docs/service.svg" width="800">
+
 - 提供最基礎的服務(Base Service), 包含持久化(Persistence)資源的操作, 外部API呼叫..等
 - 以 WebApp 的架構為主, 提供 Restful API
 - 可控制 Transaction 的最大單位

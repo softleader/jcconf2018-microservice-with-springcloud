@@ -1,4 +1,6 @@
 # Feign
+<img src="../docs/feign_1.svg" width="800">
+
 - 提供組合服務(Composite Service), 相較於基礎服務(Base Service)提供更完整的商業邏輯
 - 通常以串聯基礎服務來完成其功能, 串聯的方式透過 Feign 這一個 Dependency
 - 以 WebApp 的架構為主, 提供 Restful API
@@ -35,7 +37,7 @@
     ```
 
 ## How it works
-<img src="../docs/feign_and_ribbon.svg" width="800">
+<img src="../docs/feign_2.svg" width="800">
 
 1. 作為一個 EurekaClient, 會以一定週期與 EurekaServer 同步可呼叫的 Server 清單
 2. Server 清單會由 `Ribbon` 這個 Dependency 控管

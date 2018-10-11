@@ -1,4 +1,6 @@
 # Eureka
+<img src="../docs/eureka.svg" width="800">
+
 - 用於服務註冊, 與服務伺服清單的同步
 
 ## Setup
@@ -9,8 +11,6 @@
 
 ## Run
 ### Flow
-<img src="../docs/feign_and_ribbon.svg" width="800">
-
 1. `EurekaServer` 啟動
 2. `EurekaClient` 向 `EurekaServer` 註冊, 並提供相關系統資訊
     - 如: host, port, 健康狀態查詢url...等

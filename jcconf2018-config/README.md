@@ -1,4 +1,6 @@
 # Config Server
+<img src="../docs/config_server.svg" width="800">
+
 - 將設定檔進行集中管理
 - 使用 git 進行管理, 可以更方便處理各版本的設定檔
 
