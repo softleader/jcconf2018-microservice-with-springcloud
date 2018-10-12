@@ -1,7 +1,7 @@
 FROM softleader/build-env:jcconf2018 As build-env
 WORKDIR /app
 ADD . /app
-RUN mvn clean package
+RUN mvn clean package -DskipTests
 
 FROM openjdk:8-jre-alpine
 RUN apk update \
